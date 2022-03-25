@@ -84,7 +84,7 @@ namespace Pierre.Controllers
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
       return View(thisTreat);
     }
 
@@ -128,6 +128,18 @@ namespace Pierre.Controllers
       _db.FlavorTreat.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult Search (string treatDescription)
+    {
+      var thisTreat = _db.Treats.Where(treat => treat.Description.Contains(treatDescription)).ToList();
+      if(thisTreat != null){
+          return View(thisTreat);
+      }
+      else{
+        return View("Index");
+      }
     }
   }
 }

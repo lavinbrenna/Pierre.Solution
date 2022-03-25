@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+    @using Pierre.Models;
+
+    <h1>Treats</h1>
+
+    @foreach(Treat treat in Model)
+    {
+        <li>@Html.ActionLink($"{treat.Name}", "Details", new{id = treat.TreatId})</li>
+    }
+    </ul>
+    @using(Html.BeginForm("Search", "Treats", FormMethod.Post))
+    {
+      <label>Search for Treats</label>
+      @Html.TextBox("treatDescription")
+      <input type="submit" value="Search">
+    }
+  @Html.ActionLink("Add a treat", "Create")

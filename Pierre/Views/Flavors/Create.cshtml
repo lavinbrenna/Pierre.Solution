@@ -3,7 +3,6 @@
 }
 @model Pierre.Models.Flavor
 <h1>Add a flavor</h1>
-<p>Add a flavor here:</p>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Description)
@@ -15,6 +14,3 @@
     @Html.RadioButtonFor(model => model.Type, "Savory")</p>
   <input type="submit" value="Add new flavor" />
 }
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
-<p>@Html.ActionLink("All Flavors", "Index", "Flavors")</p>
