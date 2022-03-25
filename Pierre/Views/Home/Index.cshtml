@@ -1,13 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Project Name</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Project Title!</h1>
-    <a href='/projectclasses/new'>Add a new _____</a>
-    <a href='/projectclasses'>See list of _________</a>
-  </body>
-</html>
+@{
+  Layout = "_Layout";
+}
+@using Pierre.Models;
+@model Pierre.Models.PierreContext;
+
+if(Model.Flavors.ToList().Count == 0)
+{
+<h4>There are currently no flavors listed.</h4>
+}
+else
+{
+@foreach (Flavor flavor in Model.Flavors.ToList())
+{
+
+
+  @Html.ActionLink($"{flavor.Description}", "Details", new {id = flavor.FlavorId})
+}
+}
+
+if(Model.Treats.ToList().Count == 0)
+{
+<h4>There are currently no treats listed.</h4>
+}
+else
+{
+@foreach (Treat treat in Model.Treats.ToList())
+{
+  @Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId})
+}
+
+}
+@Html.ActionLink("See all flavors", "Index", "Flavors")
+@Html.ActionLink("See all treats", "Index", "Treats")
+@Html.ActionLink("Create an account", "Index","Account")
