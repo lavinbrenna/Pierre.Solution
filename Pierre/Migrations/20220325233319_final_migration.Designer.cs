@@ -9,8 +9,8 @@ using Pierre.Models;
 namespace Pierre.Migrations
 {
     [DbContext(typeof(PierreContext))]
-    [Migration("20220325153838_Initial")]
-    partial class Initial
+    [Migration("20220325233319_final_migration")]
+    partial class final_migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -218,6 +218,9 @@ namespace Pierre.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Type")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserId")
