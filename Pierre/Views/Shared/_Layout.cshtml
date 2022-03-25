@@ -10,7 +10,7 @@
   
   <body>
     <div class="container">
-      <div class="jumbotron">Pierre's Sweet and Savory Treats</div>
+      <div class="jumbotron">@Html.ActionLink("Pierre's Sweet and Savory Treats", "Index","Home") </div>
       @RenderBody() 
       @await Html.PartialAsync("Footer")
     </div>
