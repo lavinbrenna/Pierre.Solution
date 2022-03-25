@@ -10,7 +10,7 @@
         <li>@Html.ActionLink($"{treat.Name}", "Details", new{id = treat.TreatId})</li>
     }
     </ul>
-    @using(Html.BeginForm("Search", "Treats", FormMethod.Post))
+   @using(Html.BeginForm("Search", "Treats", FormMethod.Post))
     {
       <label>Search for Treats</label>
       @Html.TextBox("treatDescription")
