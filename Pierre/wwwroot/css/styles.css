@@ -7,3 +7,24 @@ div#footer{
   background: #333;
   padding: 8px;
 }
+body{
+  font-family: 'Comfortaa', cursive;
+  color: #5e6472;
+}
+container{
+  padding: 50px;
+  margin: 10px;
+}
+a.navbar-brand{
+  font-family: 'Pacifico', cursive;
+  text-decoration: none;
+  color: #faf3dd;
+}
+a{
+  text-decoration: none;
+  color:#5e6472;
+}
+a:hover{
+  text-decoration: underline;
+  color:#5e6472;
+}

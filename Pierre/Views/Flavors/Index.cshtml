@@ -27,5 +27,11 @@
       }
     }
     </ul>
+    @using(Html.BeginForm("Search", "Flavors", FormMethod.Post))
+    {
+      <label>Search for Flavors</label>
+      @Html.TextBox("flavorDescription")
+      <input type="submit" value="Search">
+    }
     <p>@Html.ActionLink("Home", "Index", "Home")</p>
-    <p>@Html.ActionLink("Add a flavor", "Create", "Flavors")</p>
+    <p>@Html.ActionLink("Treats","Index", "Treats")</p>

@@ -84,5 +84,17 @@ namespace Pierre.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [HttpPost]
+    public ActionResult Search (string flavorDescription)
+    {
+      var thisTreat = _db.Flavors.Where(flavor => flavor.Description.Contains(flavorDescription)).ToList();
+      if(thisTreat != null){
+          return View(thisTreat);
+      }
+      else{
+        return View("Index");
+      }
+    }
   }
 }

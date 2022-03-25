@@ -5,11 +5,28 @@
     <meta charset="utf-8">
     <title>Pierre's</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">@Html.ActionLink("Pierre's Sweet and Savory Treats", "Index","Home") </div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFA69E;">
+      <a class="navbar-brand" href="/">Pierre's Sweet and Savory Treats</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          @Html.ActionLink("Home", "Index","Home", null, new {@class ="nav-item nav-link"})
+          @Html.ActionLink("Treats", "Index", "Treats", null, new {@class ="nav-item nav-link"})
+          @Html.ActionLink("Flavors","Index", "Flavors", null, new {@class ="nav-item nav-link"})
+          @Html.ActionLink("Sign In", "Index", "Account", null, new {@class ="nav-item nav-link"})
+        </div>
+      </div>
+    </nav>
       @RenderBody()
       @await Html.PartialAsync("Footer")
     </div>

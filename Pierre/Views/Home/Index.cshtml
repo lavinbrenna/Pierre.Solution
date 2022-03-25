@@ -14,7 +14,7 @@ else
 <h4>Current Flavors:</h4>
 @foreach (Flavor flavor in Model.Flavors.ToList())
 {
-  <li>@flavor.Description</li>
+  <li>@Html.ActionLink($"{flavor.Description}", "Details", "Flavors", new {id = flavor.FlavorId})</li>
 }
 }
 
@@ -29,12 +29,7 @@ else
 <h4>Current Treats:</h4>
 @foreach (Treat treat in Model.Treats.ToList())
 {
-  <li>@treat.Name</li>
+  <li>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId})</li>
 }
 }
 
-
-
-@Html.ActionLink("Flavors", "Index", "Flavors")
-@Html.ActionLink("Treats", "Index", "Treats")
-@Html.ActionLink("Sign In", "Login","Account")
