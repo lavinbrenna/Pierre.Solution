@@ -51,6 +51,7 @@ namespace Pierre.Controllers
           .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -67,7 +68,7 @@ namespace Pierre.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -84,13 +85,12 @@ namespace Pierre.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     [HttpPost]
     public ActionResult Search (string flavorDescription)
     {
-      var thisTreat = _db.Flavors.Where(flavor => flavor.Description.Contains(flavorDescription)).ToList();
-      if(thisTreat != null){
-          return View(thisTreat);
+      var thisFlavor = _db.Flavors.Where(flavor => flavor.Description.Contains(flavorDescription)).ToList();
+      if(thisFlavor != null){
+          return View(thisFlavor);
       }
       else{
         return View("Index");

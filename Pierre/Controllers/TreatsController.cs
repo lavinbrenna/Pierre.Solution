@@ -58,7 +58,7 @@ namespace Pierre.Controllers
           .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
-
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -80,7 +80,7 @@ namespace Pierre.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -101,7 +101,7 @@ namespace Pierre.Controllers
       }
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -118,6 +118,7 @@ namespace Pierre.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult> DeleteFlavor(int joinId)
     {
